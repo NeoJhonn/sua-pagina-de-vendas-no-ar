@@ -24,6 +24,9 @@
               "src/site.webmanifest",
               "src/assets",
               "src/favicon.ico",
+              "src/apple-touch-icon.png",
+              "src/favicon-96x96.png",
+              "src/favicon.svg",
               {
                 "glob": "**/*",
                 "input": "src/assets",
