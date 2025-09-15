@@ -1,2 +1,185 @@
+<!-- Topbar -->
+<header class="sticky top-0 z-40 bg-gray-900/90 backdrop-blur-sm text-white border-b border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+    <button class="lg:hidden p-2 rounded-md bg-gray-800" (click)="toggleSidebar()" aria-label="Abrir menu">
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
+
+    <!-- 🎨 Título destacado -->
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent
+               bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400
+               animate-[shine_3s_linear_infinite] drop-shadow-lg">
+      Treinamento — Sua página de vendas online
+    </h1>
+
+    <style>
+      /* animação de gradiente suave */
+      @keyframes shine {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      h1 {
+        background-size: 200% auto;
+      }
+    </style>
+
+    <div class="hidden lg:block" aria-hidden="true"></div>
+  </div>
+</header>
+
+<div class="relative">
+  <!-- Sidebar desktop -->
+  <aside class="hidden lg:block fixed inset-y-0 left-0 w-72 bg-gray-950/90 border-r border-gray-800 overflow-y-auto">
+    <div class="p-4">
+      <p class="text-gray-300 font-semibold mb-3">Módulos</p>
+      <nav class="space-y-1">
+        @for (s of sections; track s.key) {
+          <a (click)="selectSection(s.key)"
+             class="block cursor-pointer rounded-lg px-3 py-2 hover:bg-gray-800"
+             [class.text-white]="activeKey === s.key"
+             [class.text-gray-300]="activeKey !== s.key"
+             [class.bg-gray-800]="activeKey === s.key">
+            {{ s.title }}
+          </a>
+        }
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Drawer mobile -->
+  <div class="lg:hidden fixed inset-0 z-30" [class.pointer-events-none]="!sidebarOpen">
+    <div class="absolute inset-0 bg-black/50 transition-opacity"
+         [class.opacity-0]="!sidebarOpen"
+         [class.opacity-100]="sidebarOpen"
+         (click)="toggleSidebar()"></div>
+
+    <aside class="absolute left-0 top-0 bottom-0 w-72 bg-gray-950 border-r border-gray-800 transform transition-transform"
+           [class.-translate-x-full]="!sidebarOpen"
+           [class.translate-x-0]="sidebarOpen">
+      <div class="p-4">
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-gray-300 font-semibold">Módulos</p>
+          <button class="p-2 rounded-md bg-gray-800" (click)="toggleSidebar()" aria-label="Fechar menu">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+              <path d="M6 6l12 12M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+        <nav class="space-y-1">
+          @for (s of sections; track s.key) {
+            <a (click)="selectSection(s.key)"
+               class="block cursor-pointer rounded-lg px-3 py-2 hover:bg-gray-800"
+               [class.text-white]="activeKey === s.key"
+               [class.text-gray-300]="activeKey !== s.key"
+               [class.bg-gray-800]="activeKey === s.key">
+              {{ s.title }}
+            </a>
+          }
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Conteúdo: somente a seção ativa -->
+  <main class="lg:ml-72">
+    <div class="max-w-5xl mx-auto px-4 py-6">
+      <h2 class="text-2xl font-bold text-white mb-6">Treinamento: Sua página de vendas online</h2>
+
+      @if (activeSection; as sec) {
+        <section [attr.id]="sec.key" class="mb-12 scroll-mt-24">
+          <div class="flex items-center gap-3 mb-4">
+            <h3 class="text-xl font-semibold text-white">{{ sec.title }}</h3>
+            <span class="text-sm text-gray-400">({{ sec.videos.length }} aulas)</span>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-2">
+            @for (v of sec.videos; track v.id) {
+              <div class="bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden shadow">
+                <!-- header do vídeo -->
+                <div class="flex items-center justify-between px-4 py-3 border-b border-gray-800">
+                  <div class="flex items-center gap-2">
+                    <span class="text-white font-medium">{{ v.title }}</span>
+                    @if (isWatched(v.id)) {
+                      <span class="inline-flex items-center text-emerald-400 text-xs font-semibold">✔️ Assistido</span>
+                    }
+                  </div>
+                  <div class="flex gap-2">
+                    @if (!isWatched(v.id)) {
+                      <button (click)="markWatched(v.id)"
+                              class="text-xs px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white">
+                        Concluir vídeo
+                      </button>
+                    } @else {
+                      <button (click)="resetWatched(v.id)"
+                              class="text-xs px-3 py-1 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-100">
+                        Desfazer
+                      </button>
+                    }
+                  </div>
+                </div>
+
+                <!-- vídeo (iframe YouTube) -->
+                <div class="aspect-video bg-black">
+                  <iframe
+                    class="w-full h-full"
+                    [src]="videoUrl(v.youtubeId)"
+                    [title]="v.title"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+
+                <!-- card abaixo do vídeo -->
+                <div class="p-4 grid gap-4">
+                  <!-- Comentário -->
+                  <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Comentário sobre o vídeo</label>
+                    <textarea
+                      class="w-full rounded-xl bg-gray-800 text-gray-100 p-3 outline-none ring-1 ring-transparent focus:ring-indigo-500"
+                      rows="3"
+                      placeholder="Escreva seus insights, dúvidas ou próximos passos…"
+                      [value]="comments[v.id] || ''"
+                      (input)="updateComment(v.id, $any($event.target).value)"
+                    ></textarea>
+                  </div>
+
+                  <!-- Links úteis -->
+                  <div>
+                    <p class="text-sm font-medium text-gray-300 mb-1">Links úteis</p>
+                    <ul class="list-disc list-inside space-y-1 text-blue-400">
+                      @for (link of v.links; track link.href) {
+                        <li>
+                          <a [href]="link.href" target="_blank" class="hover:underline">{{ link.label }}</a>
+                        </li>
+                      }
+                    </ul>
+                  </div>
+
+                  <!-- Comandos usados -->
+                  <div>
+                    <p class="text-sm font-medium text-gray-300 mb-1">Comandos usados na aula</p>
+                    <pre class="bg-gray-800 text-gray-100 rounded-xl p-3 overflow-auto text-sm"><code>{{ v.commands.join('\n') }}</code></pre>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </section>
+      } @else {
+        <p class="text-gray-400">Selecione um módulo no menu.</p>
+      }
+
+      <footer class="py-8 text-center text-gray-500 text-sm">
+        © {{ currentYear }} Sua página de vendas online — Todos os direitos reservados.
+      </footer>
+    </div>
+  </main>
+</div>
+
 
 <router-outlet />
