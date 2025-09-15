@@ -1,7 +1,6 @@
-<!-- Topbar com título destacado (como você curtiu) -->
 <!-- Topbar -->
 <header class="sticky top-0 z-40 bg-gray-900/90 backdrop-blur-sm text-white border-b border-gray-800 h-16">
-  <div class="max-w-7xl mx-auto h-full px-4 flex items-center justify-between gap-3">
+  <div class="max-w-7xl mx-auto h-full px-3 flex items-center justify-between gap-3">
     <!-- Botão hambúrguer -->
     <button class="lg:hidden p-2 rounded-md bg-gray-800 shrink-0" (click)="toggleSidebar()" aria-label="Abrir menu">
       <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
@@ -9,30 +8,24 @@
       </svg>
     </button>
 
-    <!-- Título (com espaço e clique pra “home”) -->
+    <!-- Título (agora adaptado ao mobile) -->
     <h1
-      class="ml-1 pl-1 text-2xl sm:text-3xl md:text-4xl font-extrabold
-         bg-clip-text text-transparent bg-gradient-to-r
-         from-indigo-400 via-purple-400 to-pink-400
-         drop-shadow-lg select-none cursor-pointer truncate shine-anim"
+      class="ml-1 text-lg sm:text-xl md:text-3xl font-extrabold leading-tight
+             bg-clip-text text-transparent bg-gradient-to-r
+             from-indigo-400 via-purple-400 to-pink-400
+             bg-[length:200%_auto] drop-shadow-lg select-none cursor-pointer
+             shine-anim truncate sm:whitespace-normal sm:truncate-none"
       (click)="goHome()"
+      title="Voltar para Apresentação"
     >
-      🚀 Treinamento — Sua página de vendas online
+      🚀 Treinamento — <span class="hidden sm:inline">Sua página de vendas online</span>
+      <span class="inline sm:hidden block text-sm">Sua página de vendas</span>
     </h1>
-
-    <style>
-      /* Gradiente ping-pong (vai e volta) */
-      @keyframes shinePingPong {
-        0%   { background-position:   0% 50%; }
-        50%  { background-position: 100% 50%; }
-        100% { background-position:   0% 50%; }
-      }
-      h1 { background-size: 200% auto; }
-    </style>
 
     <div class="hidden lg:block" aria-hidden="true"></div>
   </div>
 </header>
+
 
 <div class="relative">
   <!-- Sidebar desktop -->
@@ -41,11 +34,18 @@
       <p class="text-gray-300 font-semibold mb-3">Módulos</p>
       <nav class="space-y-1">
         @for (s of sections; track s.key) {
-          <a (click)="selectSection(s.key)"
-            class="block cursor-pointer rounded-lg px-3 py-2 hover:bg-gray-800"
+          <a
+            (click)="selectSection(s.key)"
+            class="block cursor-pointer rounded-lg px-3 py-2
+                   transition-all duration-200
+                   hover:bg-gray-800/80 hover:-translate-y-0.5 hover:shadow
+                   focus:outline-none focus:ring-2 focus:ring-indigo-500/60
+                   active:translate-y-0"
             [class.text-white]="activeKey === s.key"
             [class.text-gray-300]="activeKey !== s.key"
-            [class.bg-gray-800]="activeKey === s.key">
+            [class.bg-gray-800]="activeKey === s.key"
+            [class.shadow]="activeKey === s.key"
+          >
             {{ s.title }}
           </a>
         }
@@ -53,14 +53,13 @@
     </div>
   </aside>
 
-
   <!-- Drawer mobile -->
   <div class="lg:hidden fixed left-0 right-0 top-16 bottom-0 z-40" [class.pointer-events-none]="!sidebarOpen">
     <div class="absolute inset-0 bg-black/50 transition-opacity"
          [class.opacity-0]="!sidebarOpen" [class.opacity-100]="sidebarOpen" (click)="toggleSidebar()"></div>
     <aside class="absolute left-0 top-0 bottom-0 w-72 bg-gray-950 border-r border-gray-800 transform transition-transform"
            [class.-translate-x-full]="!sidebarOpen" [class.translate-x-0]="sidebarOpen">
-      <div class="p-4">
+      <div class="p-4 pt-6"><!-- pt extra pra não cortar o 1º item -->
         <div class="flex items-center justify-between mb-2">
           <p class="text-gray-300 font-semibold">Módulos</p>
           <button class="p-2 rounded-md bg-gray-800" (click)="toggleSidebar()" aria-label="Fechar menu">
@@ -69,11 +68,18 @@
         </div>
         <nav class="space-y-1">
           @for (s of sections; track s.key) {
-            <a (click)="selectSection(s.key)"
-               class="block cursor-pointer rounded-lg px-3 py-2 hover:bg-gray-800"
-               [class.text-white]="activeKey === s.key"
-               [class.text-gray-300]="activeKey !== s.key"
-               [class.bg-gray-800]="activeKey === s.key">
+            <a
+              (click)="selectSection(s.key)"
+              class="block cursor-pointer rounded-lg px-3 py-2
+                     transition-all duration-200
+                     hover:bg-gray-800/80 hover:-translate-y-0.5 hover:shadow
+                     focus:outline-none focus:ring-2 focus:ring-indigo-500/60
+                     active:translate-y-0"
+              [class.text-white]="activeKey === s.key"
+              [class.text-gray-300]="activeKey !== s.key"
+              [class.bg-gray-800]="activeKey === s.key"
+              [class.shadow]="activeKey === s.key"
+            >
               {{ s.title }}
             </a>
           }
@@ -99,7 +105,11 @@
 
           <div class="grid gap-6 md:grid-cols-2">
             @for (v of sec.videos; track v.id) {
-              <div class="bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden shadow">
+              <div
+                class="bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden shadow
+                       transition-all duration-200
+                       hover:shadow-lg hover:border-gray-700 hover:-translate-y-0.5"
+              >
                 <div class="flex items-center justify-between px-4 py-3 border-b border-gray-800">
                   <div class="flex items-center gap-2">
                     <span class="text-white font-medium">{{ v.title }}</span>
@@ -109,13 +119,19 @@
                   </div>
                   <div class="flex gap-2">
                     @if (!isWatched(v.id)) {
-                      <button (click)="markWatched(v.id)"
-                              class="text-xs px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white">
+                      <button
+                        (click)="markWatched(v.id)"
+                        class="text-xs px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white
+                               transition-transform duration-150 active:scale-95"
+                      >
                         Concluir vídeo
                       </button>
                     } @else {
-                      <button (click)="resetWatched(v.id)"
-                              class="text-xs px-3 py-1 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-100">
+                      <button
+                        (click)="resetWatched(v.id)"
+                        class="text-xs px-3 py-1 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-100
+                               transition-transform duration-150 active:scale-95"
+                      >
                         Desfazer
                       </button>
                     }
