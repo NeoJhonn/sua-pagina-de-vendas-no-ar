@@ -1,34 +1,51 @@
 <!-- Topbar com título destacado (como você curtiu) -->
-<header class="sticky top-0 z-40 bg-gray-900/90 backdrop-blur-sm text-white border-b border-gray-800">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-    <button class="lg:hidden p-2 rounded-md bg-gray-800" (click)="toggleSidebar()" aria-label="Abrir menu">
-      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+<!-- Topbar -->
+<header class="sticky top-0 z-40 bg-gray-900/90 backdrop-blur-sm text-white border-b border-gray-800 h-16">
+  <div class="max-w-7xl mx-auto h-full px-4 flex items-center justify-between gap-3">
+    <!-- Botão hambúrguer -->
+    <button class="lg:hidden p-2 rounded-md bg-gray-800 shrink-0" (click)="toggleSidebar()" aria-label="Abrir menu">
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
     </button>
-    <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent
-               bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400
-               animate-[shine_3s_linear_infinite] drop-shadow-lg">
-      Treinamento — Sua página de vendas online
+
+    <!-- Título (com espaço e clique pra “home”) -->
+    <h1
+      class="ml-1 pl-1 text-2xl sm:text-3xl md:text-4xl font-extrabold
+         bg-clip-text text-transparent bg-gradient-to-r
+         from-indigo-400 via-purple-400 to-pink-400
+         drop-shadow-lg select-none cursor-pointer truncate shine-anim"
+      (click)="goHome()"
+    >
+      🚀 Treinamento — Sua página de vendas online
     </h1>
+
     <style>
-      @keyframes shine { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
-      h1{ background-size:200% auto; }
+      /* Gradiente ping-pong (vai e volta) */
+      @keyframes shinePingPong {
+        0%   { background-position:   0% 50%; }
+        50%  { background-position: 100% 50%; }
+        100% { background-position:   0% 50%; }
+      }
+      h1 { background-size: 200% auto; }
     </style>
+
     <div class="hidden lg:block" aria-hidden="true"></div>
   </div>
 </header>
 
 <div class="relative">
   <!-- Sidebar desktop -->
-  <aside class="hidden lg:block fixed inset-y-0 left-0 w-72 bg-gray-950/90 border-r border-gray-800 overflow-y-auto">
+  <aside class="hidden lg:block fixed left-0 top-16 bottom-0 w-72 bg-gray-950/90 border-r border-gray-800 overflow-y-auto">
     <div class="p-4">
       <p class="text-gray-300 font-semibold mb-3">Módulos</p>
       <nav class="space-y-1">
         @for (s of sections; track s.key) {
           <a (click)="selectSection(s.key)"
-             class="block cursor-pointer rounded-lg px-3 py-2 hover:bg-gray-800"
-             [class.text-white]="activeKey === s.key"
-             [class.text-gray-300]="activeKey !== s.key"
-             [class.bg-gray-800]="activeKey === s.key">
+            class="block cursor-pointer rounded-lg px-3 py-2 hover:bg-gray-800"
+            [class.text-white]="activeKey === s.key"
+            [class.text-gray-300]="activeKey !== s.key"
+            [class.bg-gray-800]="activeKey === s.key">
             {{ s.title }}
           </a>
         }
@@ -36,8 +53,9 @@
     </div>
   </aside>
 
+
   <!-- Drawer mobile -->
-  <div class="lg:hidden fixed inset-0 z-30" [class.pointer-events-none]="!sidebarOpen">
+  <div class="lg:hidden fixed left-0 right-0 top-16 bottom-0 z-40" [class.pointer-events-none]="!sidebarOpen">
     <div class="absolute inset-0 bg-black/50 transition-opacity"
          [class.opacity-0]="!sidebarOpen" [class.opacity-100]="sidebarOpen" (click)="toggleSidebar()"></div>
     <aside class="absolute left-0 top-0 bottom-0 w-72 bg-gray-950 border-r border-gray-800 transform transition-transform"
@@ -66,7 +84,7 @@
 
   <!-- Conteúdo -->
   <main class="lg:ml-72">
-    <div class="max-w-5xl mx-auto px-4 py-6">
+    <div class="max-w-5xl mx-auto px-4 pt-16 py-6">
       <!-- Estados -->
       @if (loading) {
         <p class="text-gray-400">Carregando conteúdo…</p>

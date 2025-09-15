@@ -132,6 +132,13 @@ export class App implements OnInit {
     try { localStorage.setItem(this.COMMENTS_KEY, JSON.stringify(this.comments)); } catch {}
   }
 
+  // Ir para home ao clicar no título
+  goHome() {
+    this.selectSection('apresentacao'); // volta para a seção inicial
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+
   @HostListener('window:resize')
   onResize() { if (window.innerWidth >= 1024) this.sidebarOpen = false; }
 }
@@ -148,3 +155,5 @@ function normalizeSection(s: Section): Section {
   return { key: s.key, title: s.title, videos };
 }
 function cryptoId() { return 'vid-' + Math.random().toString(36).slice(2, 9); }
+
+
