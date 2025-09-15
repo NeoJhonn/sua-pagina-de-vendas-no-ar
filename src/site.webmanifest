@@ -1,6 +1,6 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Treinamento — Sua página de vendas online",
+  "short_name": "Sua página de vendas online",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",

@@ -21,6 +21,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              "src/site.webmanifest",
               "src/assets",
               "src/favicon.ico",
               {
