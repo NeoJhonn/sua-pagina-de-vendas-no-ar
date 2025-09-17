@@ -51,9 +51,9 @@
           "title": "Clonando seu repositório do Github e criando o seu projeto Angular — Aula 1",
           "youtubeId": "fJLKhuBdpKA",
           "links": [
-            { "label": "Git Downloads", "href": "https://git-scm.com/downloads" }
+            { "label": "Github", "href": "https://github.com/" }
           ],
-          "commands": ["git clone \" url_ssh_seu-repositorio\"", "ng new nome-do-seu-projeto --directory=.", "code .", "ng serve"]
+          "commands": ["git clone \"url_ssh_seu-repositorio\"", "ng new nome-do-seu-projeto --directory=.", "code .", "ng serve"]
         },
         {
           "id": "GH-V2",
