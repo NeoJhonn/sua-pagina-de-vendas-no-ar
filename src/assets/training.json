@@ -24,19 +24,21 @@
           "title": "Configurando Ambiente de Desenvolvimento — Aula 1",
           "youtubeId": "nv2Dbr2s8gQ",
           "links": [
-            { "label": "Node.js", "href": "https://nodejs.org/" },
-            { "label": "Angular Docs", "href": "https://angular.dev" }
+            { "label": "Node.js", "href": "https://nodejs.org/pt/download" },
+            { "label": "Angular", "href": "https://angular.dev/installation" },
+            { "label": "VsCode", "href": "https://code.visualstudio.com/" }
+            { "label": "GitCli e GitBash", "href": "https://git-scm.com/downloads" },
           ],
-          "commands": ["node -v", "npm -v", "npm i -g @angular/cli"]
+          "commands": ["npm install -g @angular/cli", "ng --version"]
         },
         {
           "id": "AMB-V2",
           "title": "Criando conta no Github e configurando sua chave SSH — Aula 2",
           "youtubeId": "T8ct4KoGZq0",
           "links": [
-            { "label": "Tailwind Docs", "href": "https://tailwindcss.com/docs" }
+            { "label": "Github", "href": "https://github.com/" }
           ],
-          "commands": ["npm i -D tailwindcss postcss autoprefixer", "npx tailwindcss init"]
+          "commands": ["ssh-keygen -t ed25519 -C \" seu_email_do_github\"", "ssh -T git@github.com"]
         }
       ]
     },
@@ -51,14 +53,16 @@
           "links": [
             { "label": "Git Downloads", "href": "https://git-scm.com/downloads" }
           ],
-          "commands": ["git init", "git remote add origin git@github.com:seuuser/seurepo.git"]
+          "commands": ["git clone \" url_ssh_seu-repositorio\"", "ng new nome-do-seu-projeto --directory=.", "code .", "ng serve"]
         },
         {
           "id": "GH-V2",
           "title": "Subindo seu projeto para o Github — Aula 2",
           "youtubeId": "pDNLXRrUHmg",
-          "links": [],
-          "commands": ["git add .", "git commit -m \"feat: projeto base\"", "git push -u origin main"]
+          "links": [
+            { "label": "Github", "href": "https://github.com/" }
+          ],
+          "commands": ["git add .", "git commit -m \"Criado projeto do produto\"", "git push origin main"]
         }
       ]
     },
