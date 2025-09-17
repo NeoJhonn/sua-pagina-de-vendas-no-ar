@@ -26,7 +26,7 @@
           "links": [
             { "label": "Node.js", "href": "https://nodejs.org/pt/download" },
             { "label": "Angular", "href": "https://angular.dev/installation" },
-            { "label": "VsCode", "href": "https://code.visualstudio.com/" }
+            { "label": "VsCode", "href": "https://code.visualstudio.com/" },
             { "label": "GitCli e GitBash", "href": "https://git-scm.com/downloads" }
           ],
           "commands": ["npm install -g @angular/cli", "ng --version"]
