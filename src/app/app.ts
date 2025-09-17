@@ -10,6 +10,7 @@ type Video = { id: string; title: string; youtubeId: string; links: LinkItem[]; 
 type Section = { key: string; title: string; videos: Video[]; };
 type TrainingData = { sections: Section[] };
 
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
