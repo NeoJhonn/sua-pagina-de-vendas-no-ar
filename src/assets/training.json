@@ -6,12 +6,12 @@
       "videos": [
         {
           "id": "APRES-V1",
-          "title": "Apresentação — Aula 1",
-          "youtubeId": "dQw4w9WgXcQ",
+          "title": "Apresentação",
+          "youtubeId": "NlrrXgle5iY",
           "links": [
-            { "label": "Sobre o Treinamento", "href": "https://seu-dominio.com/sobre" }
+            { "label": "Todos os meus links num so lugar", "href": "https://link-tree-jhonny-azevedo.vercel.app/" }
           ],
-          "commands": ["echo \"Bem-vindo!\""]
+          "commands": ["Nenhum comando usado nessa Aula"]
         }
       ]
     },
@@ -73,30 +73,22 @@
       "key": "gerar-pagina",
       "title": "Gerando sua Página",
       "videos": [
-        { "id": "GERAR-V1", "title": "Gerando — Aula 1", "youtubeId": "hY7m5jjJ9mM", "links": [], "commands": ["ng new minha-pagina --routing --style=css"] },
-        { "id": "GERAR-V2", "title": "Gerando — Aula 2", "youtubeId": "dQw4w9WgXcQ", "links": [], "commands": ["ng serve -o"] },
-        { "id": "GERAR-V3", "title": "Gerando — Aula 3", "youtubeId": "M7lc1UVf-VE", "links": [], "commands": ["ng build"] },
-        { "id": "GERAR-V4", "title": "Gerando — Aula 4", "youtubeId": "ysz5S6PUM-U", "links": [], "commands": ["ng generate component link-tree"] },
-        { "id": "GERAR-V5", "title": "Gerando — Aula 5", "youtubeId": "9bZkp7q19f0", "links": [], "commands": ["ng add @angular/ssr"] }
+        
       ]
     },
     {
       "key": "vercel",
       "title": "Sua página online com o Vercel",
       "videos": [
-        { "id": "VERCEL-V1", "title": "Vercel — Aula 1", "youtubeId": "3GwjfUFyY6M", "links": [{ "label": "Vercel", "href": "https://vercel.com" }], "commands": ["npx vercel"] },
-        { "id": "VERCEL-V2", "title": "Vercel — Aula 2", "youtubeId": "aqz-KE-bpKQ", "links": [], "commands": ["npx vercel deploy --prod"] },
-        { "id": "VERCEL-V3", "title": "Vercel — Aula 3", "youtubeId": "hY7m5jjJ9mM", "links": [], "commands": ["vercel env pull .env"] },
-        { "id": "VERCEL-V4", "title": "Vercel — Aula 4", "youtubeId": "dQw4w9WgXcQ", "links": [], "commands": ["vercel logs"] }
+        
       ]
     },
     {
       "key": "dominio",
       "title": "Bônus: Comprar e configurar domínio próprio",
       "videos": [
-        { "id": "DNS-V1", "title": "Domínio — Aula 1", "youtubeId": "M7lc1UVf-VE", "links": [], "commands": ["Configurar CNAME", "Propagar DNS"] },
-        { "id": "DNS-V2", "title": "Domínio — Aula 2", "youtubeId": "ysz5S6PUM-U", "links": [], "commands": ["Configurar HTTPS", "Verificar no Vercel"] }
-      ]
+        
+       ]
     }
   ]
 }
