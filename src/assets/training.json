@@ -80,14 +80,15 @@
 
         { "id": "GERAR-V2", "title": "Gerando a Página de Vendas com Prompt — Aula 2", "youtubeId": "UbEICy8_a4U",
         "links": [
-          { "label": "chatGPT", "href": "https://chatgpt.com/" }
+          { "label": "chatGPT", "href": "https://chatgpt.com/" },
+          { "label": "Prompt Agente Gerador de Páginas", "href": "https://drive.google.com/file/d/1aBkoyWGfrM6mhgR1yEvp_0pWnieTx1Rw/view?usp=sharing" }
+
         ],
         "commands": [
           "ng serve",
           "git add .",
           "git commit -m \"Mensagem do seu commit\"",
-          "git push origin main",
-          "## 📝 Prompt Final (Versão Ajustada para Angular 20)\n\nQuero que você atue como um **gerador de página de vendas** para um projeto em **Angular 20** usando **Tailwind CSS**.\n\n**Como vamos fazer:**\n\n1. Faça as perguntas **uma de cada vez** e espere minhas respostas.\n   Pergunte nesta ordem:\n\n* Nicho do produto (ex.: Espiritualidade, Fitness, Marketing)\n* Nome do produto\n* Uma frase de promessa/benefício principal (subtítulo)\n* Público-alvo (para quem é o produto)\n* **5 benefícios** (em forma de lista, frases curtas)\n* **3–4 passos** de “Como funciona”\n* **Bônus** (0–2 itens, opcional)\n* **2 depoimentos** (nome + frase)\n* **FAQ** com 2–4 perguntas e respostas\n* **Garantia** (ex.: 7 dias de garantia)\n* **Texto do botão (CTA)**\n* **Link do checkout** (Hotmart/Kiwify/Eduzz etc.)\n* **Preço/condição** (opcional)\n* **URL da imagem da Jornada do Herói** (ou use uma imagem livre do Unsplash se eu não tiver)\n\n2. **Não gere nenhum código** até eu escrever: **“gerar página”**.\n\n3. Quando eu escrever **“gerar página”**, você vai gerar **um único bloco de código HTML completo**, pronto para colar em `src/app/app.html` do meu projeto Angular 20.\n   Requisitos do HTML:\n\n* Usar **HTML + classes do Tailwind**.\n* Pode usar diretivas modernas do Angular 20 (`@if`, `@for`) **somente se realmente necessário**, sem exigir alterações no TypeScript.\n* Estrutura com estas seções:\n  **Topbar (com nome do produto), Jornada do Herói (imagem + promessa), Benefícios, Como funciona, Bônus (se houver), Depoimentos, FAQ, CTA final e Rodapé.**\n* **Responsivo** (mobile-first) e com tema escuro.\n* Botão de compra com `id=\"checkout\"`.\n* Links externos com `target=\"_blank\"` e `rel=\"noopener\"`.\n* Código **limpo e fácil de editar**, sem JSON e sem lógica extra no TypeScript.\n\nSe eu não tiver imagem para a Jornada do Herói, use automaticamente uma **imagem livre do Unsplash** que combine com o nicho.\nNo final, entregue **somente o código HTML**, sem explicações adicionais.\n"
+          "git push origin main"
           ] }
       ]
     },
