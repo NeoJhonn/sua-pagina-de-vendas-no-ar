@@ -85,9 +85,7 @@
       "title": "Sua página online com o Vercel",
       "videos": [
         { "id": "VERCEL-V1", "title": "Vercel — Aula 1", "youtubeId": "3GwjfUFyY6M", "links": [{ "label": "Vercel", "href": "https://vercel.com" }], "commands": ["npx vercel"] },
-        { "id": "VERCEL-V2", "title": "Vercel — Aula 2", "youtubeId": "aqz-KE-bpKQ", "links": [], "commands": ["npx vercel deploy --prod"] },
-        { "id": "VERCEL-V3", "title": "Vercel — Aula 3", "youtubeId": "hY7m5jjJ9mM", "links": [], "commands": ["vercel env pull .env"] },
-        { "id": "VERCEL-V4", "title": "Vercel — Aula 4", "youtubeId": "dQw4w9WgXcQ", "links": [], "commands": ["vercel logs"] }
+        { "id": "VERCEL-V2", "title": "Vercel — Aula 2", "youtubeId": "aqz-KE-bpKQ", "links": [], "commands": ["npx vercel deploy --prod"] }
       ]
     },
     {

@@ -97,7 +97,7 @@
       "key": "vercel",
       "title": "Sua página online com o Vercel",
       "videos": [
-
+        { "id": "VERCEL-V1", "title": "Deploy da Sua Página no Vercel", "youtubeId": "gKe8qk9eFws", "links": [{ "label": "Vercel", "href": "https://vercel.com" }], "commands": [] }
       ]
     },
     {
