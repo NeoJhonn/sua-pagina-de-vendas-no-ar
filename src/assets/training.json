@@ -104,7 +104,7 @@
       "key": "dominio",
       "title": "Bônus: Comprar e configurar domínio próprio",
       "videos": [
-
+        { "id": "DNS-V1", "title": "Comprar e configurar domínio próprio", "youtubeId": "8kB8Hz-IKYU", "links": [{ "label": "Vercel", "href": "https://vercel.com" }], "commands": ["Servidores DNS Vercel:", "ns1.vercel-dns.com", "ns2.vercel-dns.com"] }
        ]
     }
   ]
