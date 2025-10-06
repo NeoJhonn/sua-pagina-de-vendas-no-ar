@@ -111,14 +111,14 @@
       "key": "preview",
       "title": "Bônus: Adicionando Link Preview",
       "videos": [
-        { "id": "PREVIEW-V1", "title": "Adicionando Link prevew ao seu site", "youtubeId": "placeholder", "links": [{ "label": "OpenGraph", "href": "https://" }], "commands": [] }
+        { "id": "PREVIEW-V1", "title": "Adicionando Link prevew ao seu site", "youtubeId": "8EurI4qpHaQ", "links": [{ "label": "OpenGraph", "href": "https://www.opengraph.xyz/" }], "commands": [] }
        ]
     },
     {
       "key": "index",
       "title": "Bônus: Indexando seu Site no Google",
       "videos": [
-        { "id": "index-V1", "title": "Indexando seu Site no Google", "youtubeId": "placeholder", "links": [{ "label": "Seach Console", "href": "https://" }], "commands": [] }
+        { "id": "index-V1", "title": "Indexando seu Site no Google", "youtubeId": "placeholder", "links": [{ "label": "Seach Console", "href": "https://search.google.com/" }], "commands": [] }
        ]
     },
     {
