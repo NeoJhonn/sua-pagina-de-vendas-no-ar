@@ -106,6 +106,34 @@
       "videos": [
         { "id": "DNS-V1", "title": "Comprar e configurar domínio próprio", "youtubeId": "8kB8Hz-IKYU", "links": [{ "label": "Vercel", "href": "https://vercel.com" }], "commands": ["Servidores DNS Vercel:", "ns1.vercel-dns.com", "ns2.vercel-dns.com"] }
        ]
+    },
+    {
+      "key": "preview",
+      "title": "Bônus: Adicionando Link Preview",
+      "videos": [
+        { "id": "PREVIEW-V1", "title": "Adicionando Link prevew ao seu site", "youtubeId": "placeholder", "links": [{ "label": "OpenGraph", "href": "https://" }], "commands": [] }
+       ]
+    },
+    {
+      "key": "index",
+      "title": "Bônus: Indexando seu Site no Google",
+      "videos": [
+        { "id": "index-V1", "title": "Indexando seu Site no Google", "youtubeId": "placeholder", "links": [{ "label": "Seach Console", "href": "https://" }], "commands": [] }
+       ]
+    },
+    {
+      "key": "pixel",
+      "title": "Bônus: Adicionando a Ferramenta da Meta: O Pixel",
+      "videos": [
+        { "id": "pixel-V1", "title": "Adicionando o Pixel no seu Site", "youtubeId": "placeholder", "links": [{ "label": "Facebook Ads Manager", "href": "https://"}], "commands": [] }
+       ]
+    },
+    {
+      "key": "ga4",
+      "title": "Bônus: Adicionando Google Analytics ao seu Site",
+      "videos": [
+        { "id": "ga4-V1", "title": "Instalando o Google Analytics", "youtubeId": "placeholder", "links": [{ "label": "Google Tag Manager", "href": "https://"}], "commands": [] }
+       ]
     }
   ]
 }
