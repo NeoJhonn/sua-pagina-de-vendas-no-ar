@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sua-pagina-de-vendas-no-ar.vercel.app/sitemap-1.xml
+Sitemap: https://sua-pagina-de-vendas-no-ar.vercel.app/sitemap.xml
