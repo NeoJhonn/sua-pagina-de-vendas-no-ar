@@ -1,6 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 
+
 const baseUrl = 'https://sua-pagina-de-vendas-no-ar.vercel.app/';
 
 const urls = [
