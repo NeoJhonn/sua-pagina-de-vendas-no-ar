@@ -118,7 +118,7 @@
       "key": "index",
       "title": "Bônus: Indexando seu Site no Google",
       "videos": [
-        { "id": "index-V1", "title": "Indexando seu Site no Google", "youtubeId": "WHGb5zcLEWI", "links": [{ "label": "Seach Console", "href": "https://search.google.com/" }], "commands": [] }
+        { "id": "index-V1", "title": "Indexando seu Site no Google", "youtubeId": "WHGb5zcLEWI", "links": [{ "label": "Seach Console", "href": "https://search.google.com/search-console" }], "commands": [] }
        ]
     },
     {
