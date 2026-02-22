@@ -132,7 +132,8 @@
       "key": "ga4",
       "title": "Bônus: Adicionando Google Analytics ao seu Site",
       "videos": [
-        { "id": "ga4-V1", "title": "Instalando o Google Analytics", "youtubeId": "placeholder", "links": [{ "label": "Google Tag Manager", "href": "https://"}], "commands": [] }
+        { "id": "ga4-V1", "title": "Instalando o Google Analytics", "youtubeId": "5e9_X7-rZe8", "links": [{ "label": "Google Tag Manager", "href": "https://tagmanager.google.com"},
+        { "label": "Google Analytics", "href": "https://analytics.google.com"}], "commands": [] }
        ]
     }
   ]
